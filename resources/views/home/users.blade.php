@@ -1,5 +1,5 @@
 @extends('master')
-@include('navbar')
+@include('sidebar')
 
 @section('content')
 <div class="bg-pink-100 min-h-screen py-10">

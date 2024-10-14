@@ -1,9 +1,10 @@
 @extends('master')
-@include('navbar')
+@include('sidebar')
 
 @section('content')
-<div class="bg-pink-100 min-h-screen py-10"> 
-    <div class="container mx-auto bg-white p-8 rounded-lg shadow-md"> 
+<div class="min-h-screen py-10 bg-cover bg-center relative overflow-hidden" style="background-image: url('/img/bg.jpg');">
+    
+    <div class="container mx-auto bg-white p-8 rounded-lg shadow-md max-w-md mt-24" style="margin-right: 355px;"> <!-- Added custom left margin -->
         <h1 class="text-center text-4xl text-pink-600 font-bold mb-10">Upload Files</h1>
         <form action="/home" method="post" enctype="multipart/form-data">
             @csrf
