@@ -38,6 +38,8 @@ $homeController = app('App\Http\Controllers\HomeController');
                                     <h6 class="font-semibold">ID Card</h6>
                                     @php
                                     $akey = str_replace('/', '', $aes->id_card_key);
+                                    $bkey = str_replace('/', '', $aes->document_key);
+                                    $ckey = str_replace('/', '', $aes->video_key);
                                     @endphp
                                     <a href="/download/aes/id_card/{{$aes->user_id}}/{{$akey}}" class="bg-blue-600 text-white py-1 px-2 rounded btn">Download</a>
                                 </div>
