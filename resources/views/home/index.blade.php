@@ -6,7 +6,7 @@ $homeController = app('App\Http\Controllers\HomeController');
 @endphp
 
 @section('content')
-<div class="bg-gray-200 min-h-screen py-10">
+<div class="bg-pink-100 min-h-screen py-10">
     @if(count($aess) > 0)
     <div class="container py-5 h-auto">
         <div class="flex justify-center">

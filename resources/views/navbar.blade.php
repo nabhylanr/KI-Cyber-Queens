@@ -14,18 +14,18 @@
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
             @guest
-            <a href="{{ url('/login') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900">Login</a>
-            <a href="{{ url('/register') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900">Register</a>
+            <a href="{{ url('/login') }}" class="rounded-md px-3 py-2 text-sm font-medium text-pink-600 hover:bg-gray-200 hover:text-pink-600">Login</a>
+            <a href="{{ url('/register') }}" class="rounded-md px-3 py-2 text-sm font-medium text-pink-600 hover:bg-gray-200 hover:text-pink-600">Register</a>
             @endguest
 
             @auth
             @if(!is_null($aess) && count($aess) < 1)
-            <a href="{{ url('/home/create') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ Request::is('home/create') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200 hover:text-gray-900' }}">Upload</a>
+            <a href="{{ url('/home/create') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ Request::is('home/create') ? 'bg-gray-100 text-pink-600' : 'text-pink-600 hover:bg-gray-200 hover:text-pink-600' }}">Upload</a>
             @else
-            <a href="{{ url('/home/edit') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ Request::is('home/edit') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200 hover:text-gray-900' }}">Update</a>
+            <a href="{{ url('/home/edit') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ Request::is('home/edit') ? 'bg-gray-100 text-pink-600' : 'text-pink-600 hover:bg-gray-200 hover:text-pink-600' }}">Update</a>
             @endif
-            <a href="{{ url('/home') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ Request::is('home') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200 hover:text-gray-900' }}">Profile</a>
-            <a href="{{ url('/logout') }}" class="rounded-md px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 hover:text-gray-900">Log Out</a>
+            <a href="{{ url('/home') }}" class="rounded-md px-3 py-2 text-sm font-medium {{ Request::is('home') ? 'bg-gray-100 text-pink-600' : 'text-pink-600 hover:bg-gray-200 hover:text-pink-600' }}">Profile</a>
+            <a href="{{ url('/logout') }}" class="rounded-md px-3 py-2 text-sm font-medium text-pink-600 hover:bg-gray-200 hover:text-pink-600">Log Out</a>
             @endauth
           </div>
         </div>

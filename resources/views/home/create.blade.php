@@ -2,9 +2,9 @@
 @include('navbar')
 
 @section('content')
-<div class="bg-gray-200 min-h-screen py-10"> 
+<div class="bg-pink-100 min-h-screen py-10"> 
     <div class="container mx-auto bg-white p-8 rounded-lg shadow-md"> 
-        <h1 class="text-center text-4xl font-bold mb-10">Upload Files</h1>
+        <h1 class="text-center text-4xl text-pink-600 font-bold mb-10">Upload Files</h1>
         <form action="/home" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">

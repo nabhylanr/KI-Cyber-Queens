@@ -2,7 +2,7 @@
 @include('navbar')
 
 @section('content')
-<div class="bg-gray-200 min-h-screen py-10">
+<div class="bg-pink-100 min-h-screen py-10">
     <div class="text-center mb-5" style="margin-top: 100px">
         <h1 class="display-4 fw-bolder mb-4">List User</h1>
         <form class="form-inline">

@@ -2,7 +2,7 @@
 @include('navbar')
 
 @section('content')
-<div class="bg-gray-200 min-h-screen py-10">
+<div class="bg-pink-100 min-h-screen py-10">
     <div class="text-center mb-5">
         <h1 class="text-4xl font-bold mb-4">Inboxes</h1>
     </div>
