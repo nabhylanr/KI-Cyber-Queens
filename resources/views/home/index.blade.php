@@ -10,11 +10,11 @@ $homeController = app('App\Http\Controllers\HomeController');
     @if(count($aess) > 0)
     <div class="container py-5 h-auto ml-40">
         <div class="flex justify-center">
-            <div class="bg-gradient-to-r from-pink-200 to-pink-400 shadow-md rounded-lg mb-3 w-full max-w-2xl">
-                <div class="p-4"> <!-- Menghapus div flex untuk foto dan username -->
+            <div class="bg-white shadow-md rounded-lg mb-3 w-full max-w-2xl">
+                <div class="p-4"> 
                     <h2 class="text-xl font-bold">AES</h2>
                     <hr class="mt-0 mb-4" />
-                    <div class="grid grid-cols-1 gap-4 pt-1"> <!-- Ubah grid menjadi satu kolom -->
+                    <div class="grid grid-cols-1 gap-4 pt-1"> 
                         @foreach ($aess as $aes)
                         <div class="mb-3">
                             <h6 class="font-semibold">Name</h6>
@@ -43,7 +43,7 @@ $homeController = app('App\Http\Controllers\HomeController');
 
                     <h2 class="text-xl font-bold mt-4">RC4</h2>
                     <hr class="mt-0 mb-4" />
-                    <div class="grid grid-cols-1 gap-4 pt-1"> <!-- Ubah grid menjadi satu kolom -->
+                    <div class="grid grid-cols-1 gap-4 pt-1"> 
                         @foreach ($rc4s as $rc4)
                         <div class="mb-3">
                             <h6 class="font-semibold">Name</h6>
@@ -69,7 +69,7 @@ $homeController = app('App\Http\Controllers\HomeController');
 
                     <h2 class="text-xl font-bold mt-4">DES</h2>
                     <hr class="mt-0 mb-4" />
-                    <div class="grid grid-cols-1 gap-4 pt-1"> <!-- Ubah grid menjadi satu kolom -->
+                    <div class="grid grid-cols-1 gap-4 pt-1"> 
                         @foreach ($dess as $des)
                         <div class="mb-3">
                             <h6 class="font-semibold">Name</h6>

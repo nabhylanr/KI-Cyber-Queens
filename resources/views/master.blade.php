@@ -15,7 +15,7 @@
   </style>
 </head>
 
-<body class="bg-[#d1e5e6] font-[Montserrat,sans-serif]"> <!-- Ensure font family is Montserrat -->
+<body class="bg-[#d1e5e6] font-[Montserrat,sans-serif]"> 
   @yield('content')
 
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>

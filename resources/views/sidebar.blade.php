@@ -1,9 +1,8 @@
 <div class="flex">
-    <!-- Sidebar -->
     <div class="fixed inset-y-0 left-0 z-30 w-64 bg-white shadow-lg transition-transform transform -translate-x-full sm:translate-x-0" id="sidebar">
       <div class="h-full flex flex-col">
-        <div class="flex items-center justify-center h-16 border-b">
-          <h1 class="text-lg font-bold">My App</h1>
+        <div class="flex items-center justify-center h-22 border-b">
+            <img src="{{ asset('img/logo.png') }}" alt="Logo" class="h-20 w-auto" />
         </div>
         <nav class="flex-1 overflow-y-auto">
           <div class="flex flex-col space-y-1 px-2 py-4">

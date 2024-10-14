@@ -53,13 +53,4 @@ class User extends Authenticatable
         return $this->hasOne(Aes::class);
     }
 
-    public function mainInboxes(): HasMany
-    {
-        return $this->hasMany(UserInbox::class, 'main_user_id');
-    }
-
-    public function clientInboxes(): HasMany
-    {
-        return $this->hasMany(UserInbox::class, 'client_user_id');
-    }
 }
