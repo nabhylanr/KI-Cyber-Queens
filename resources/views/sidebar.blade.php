@@ -13,7 +13,7 @@
   
             @auth
             @if(!is_null($aess) && count($aess) < 1)
-            <a href="{{ url('/home  /create') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home/create') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Upload</a>
+            <a href="{{ url('/home/create') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home/create') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Upload</a>
             @else
             <a href="{{ url('/home/edit') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home/edit') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Update</a>
             @endif

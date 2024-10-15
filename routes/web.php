@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DataController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\PDFController;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
