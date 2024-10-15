@@ -49,5 +49,4 @@ Route::post('/register', [UserController::class, 'create']);
 
 Route::get('/download/{algo}/{type}/{id}/{akey}', [HomeController::class, 'download'])->middleware('auth');
 
-Route::get('/sign/{userId}', [PDFController::class, 'sign'])->middleware('auth');
-Route::post('/verify/{userId}', [PDFController::class, 'verify'])->middleware('auth');
+

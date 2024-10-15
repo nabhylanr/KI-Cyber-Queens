@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Aes;
-use App\Models\Des;
-use App\Models\Rc4;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use phpseclib3\Crypt\RSA;

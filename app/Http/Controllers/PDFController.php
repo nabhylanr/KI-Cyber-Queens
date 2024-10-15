@@ -1,14 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
 use phpseclib3\Crypt\RSA;
 use App\Models\User;
-use App\Models\AES;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Hash;
+
 
 
 class PDFController extends Controller
@@ -75,65 +70,4 @@ class PDFController extends Controller
     }
 
 
-    public function sign($userId)
-    {
-        $user = User::findorfail($userId);
-        if ($user->doc_is_signed) {
-            return redirect()->back()->with('error', 'already signed!');
-        }
-        if ($user->private_key == null && $user->public_key == null) {
-            $this->generateKey($userId);
-        }
-        $userAes = AES::where('user_id', $userId)->first();
-        $document = $userAes->document;
-
-        if (substr($document, -4) != ".pdf")
-            return redirect()->back()->with('error', 'Your Document is not PDF');
-
-        // Storage::makeDirectory('public/document/aes/signing');
-
-        $filePath = storage_path('app/public/document/aes/' . $document);
-
-        $symKey = $userAes->document_key;
-        $iv = $userAes->document_iv;
-
-        //mengambil plaintext saja 
-        $dehashedValue = $this->AESdecrypt($filePath, $symKey, $iv, 0);
-
-        // $digest = Hash::make($dehashedValue);
-        $digest = hash('sha256', $dehashedValue);
-        $digitalSignature = null;
-
-        $success = openssl_private_encrypt($digest, $digitalSignature, $user->private_key, OPENSSL_PKCS1_PADDING);
-
-        $digitalSignature = base64_encode($digitalSignature);
-        $data = $dehashedValue . 'Signature:' . $digitalSignature;
-
-        $user->update(['doc_is_signed' => 1]);
-
-        file_put_contents($filePath, $data);
-
-        $this->AESencrypt($filePath, $symKey, $iv, 1);
-
-        return redirect()->back()->with('success', 'signed!');
-    }
-
-    public function verify(Request $request, $id)
-    {
-        $content = file_get_contents($request->file('document'));
-        $pos = strpos($content, 'Signature:');
-
-        if ($pos !== false) {
-            $doc = substr($content, 0, $pos);
-            $digsig = substr($content, $pos + strlen('Signature:'));
-            $digest = hash('sha256', $doc);
-            $public_key = User::findOrFail($id)->public_key;
-            $decrypted_digsig = null;
-            openssl_public_decrypt(base64_decode($digsig), $decrypted_digsig, $public_key, OPENSSL_PKCS1_PADDING);
-
-            return redirect()->back()->with(['status' => 'success', 'digest' => $digest, 'decrypted_digsig' => $decrypted_digsig]);
-        } else {
-            return redirect()->back()->with(['status' => 'failed', 'message' => 'Signature not found!']);
-        }
-    }
 }

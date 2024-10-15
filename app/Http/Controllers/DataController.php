@@ -7,24 +7,9 @@ use App\Models\Aes;
 use App\Models\User;
 use App\Models\UserInbox;
 use Illuminate\Support\Facades\Auth;
-use phpseclib3\Crypt\RSA;
 
 class DataController extends Controller
 {
-    // public function encrypt_asym($symkey)
-    // {
-    //     $publickey = Auth::user()->public_key;
-    //     $encrypted = null;
-    //     $success = openssl_private_encrypt(base64_decode($symkey), $encrypted, $publickey, OPENSSL_PKCS1_PADDING);
-
-    //     if ($success) {
-    //         $response = ['status' => 'success', 'encrypted' => $encrypted];
-    //     } else {
-    //         $response = ['status' => 'error', 'encrypted' => 'Failed to encrypt the symmetric key'];
-    //     }
-
-    //     return $encrypted;
-    // }
 
     public function decrypt_asym(Request $request)
     {

@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use App\Models\Aes;
 use App\Models\Des;
 use App\Models\Rc4;
 use App\Models\UserInbox;
-use App\Http\Controllers\HomeController\Rc4encrypt;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Config;
-use Illuminate\Support\Facades\Crypt;
+
 
 
 class HomeController extends Controller
@@ -480,7 +477,7 @@ class HomeController extends Controller
         // Stop calculating usage statistics
         $end_usage = getrusage();
 
-        // Output user run time and system run time from usage statistics
+        // Runtime Debug
         $user_time = $end_usage["ru_utime.tv_sec"] - $start_usage["ru_utime.tv_sec"];
         $user_time += ($end_usage["ru_utime.tv_usec"] - $start_usage["ru_utime.tv_usec"]) / 1000000;
 
@@ -534,7 +531,7 @@ class HomeController extends Controller
         // Stop calculating usage statistics
         $end_usage = getrusage();
 
-        // Output user run time and system run time from usage statistics
+        // Runtime Debug
         $user_time = $end_usage["ru_utime.tv_sec"] - $start_usage["ru_utime.tv_sec"];
         $user_time += ($end_usage["ru_utime.tv_usec"] - $start_usage["ru_utime.tv_usec"]) / 1000000;
 
@@ -572,7 +569,7 @@ class HomeController extends Controller
         // Stop calculating usage statistics
         $end_usage = getrusage();
 
-        // Output user run time and system run time from usage statistics
+        // Run time
         $user_time = $end_usage["ru_utime.tv_sec"] - $start_usage["ru_utime.tv_sec"];
         $user_time += ($end_usage["ru_utime.tv_usec"] - $start_usage["ru_utime.tv_usec"]) / 1000000;
 
