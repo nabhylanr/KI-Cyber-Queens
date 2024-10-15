@@ -17,15 +17,13 @@
             @else
             <a href="{{ url('/home/edit') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home/edit') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Update</a>
             @endif
-            <a href="{{ url('/home') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Profile</a>
+            <a href="{{ url('/home') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Profile</a>            
             <a href="{{ url('/logout') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200">Log Out</a>
             @endauth
           </div>
         </nav>
       </div>
-    </div>
-  
-    <!-- Main Content -->
+    </div> 
   </div>
   
   <script>
