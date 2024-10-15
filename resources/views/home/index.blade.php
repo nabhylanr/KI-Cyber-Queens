@@ -97,7 +97,7 @@ $homeController = app('App\Http\Controllers\HomeController');
         </div>
     </div>
     @else
-    <h1 class="text-center text-4xl font-bold mt-20">Hi {{ Auth::user()->username }}, please complete your profile!</h1>
+    <h1 class="text-center text-3xl font-bold mt-20 ml-5 text-pink-600">Hi, {{ Auth::user()->username }}. Please update your profile now!</h1>
     @endif
 </div>
 @endsection
