@@ -17,6 +17,8 @@
             @else
             <a href="{{ url('/home/edit') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home/edit') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Update</a>
             @endif
+            <a href="{{ url('/home/inbox') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home/inbox') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Inbox</a>
+            <a href="{{ url('/home/users') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home/users') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Users List</a>
             <a href="{{ url('/home') }}" class="block rounded-md px-3 py-2 text-base font-medium {{ Request::is('home') ? 'bg-gray-100 text-gray-900' : 'text-gray-700 hover:bg-gray-200' }}">Profile</a>            
             <a href="{{ url('/logout') }}" class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-200">Log Out</a>
             @endauth
