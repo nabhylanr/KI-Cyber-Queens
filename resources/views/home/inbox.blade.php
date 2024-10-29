@@ -1,54 +1,54 @@
 @extends('master')
 @include('sidebar')
+
 @section('content')
 <div class="bg-pink-100 min-h-screen py-10">
-<div class="container">
-    <div class="text-center mb-5" style="margin-top: 100px">
-        <!-- Center the content -->
-        <div class="col">
-            <h1 class="display-4 fw-bolder mb-4">Inboxes</h1>
-            <!-- <input class="form-control" id="myInput" type="text" placeholder="Search.." /> -->
-            {{-- <form class="form-inline">
-                <input class="form-control mr-sm-2" id="filter" type="search" placeholder="Search" aria-label="Search"
-                    autocomplete="off" />
-            </form> --}}
-            <br />
-        </div>
-    </div>
-    <div id="mycard">
-        @foreach($inboxes as $inbox)
-        <div class="card mb-3">
-            <div class="card-body">
-                <div class="d-flex flex-column flex-lg-row">
-                    <span class="avatar avatar-text rounded-3 me-4 mb-2"><img src="{{ url('img/profile_user.svg') }}"
-                            alt="Avatar" style="width: 80px" /></span>
-                    <div class="row flex-fill">
-                        <div class="col-sm-6 m-auto">
-                            <h4 class="h5">{{$inbox->clientUser->username}}</h4>
-                        </div>
-                        <div class="col-sm-6 text-lg-end m-auto">
-                            <h5>{{$inbox->type}}</h5>
-                            <form action="{{ route('mail.'.$inbox->type, ['main_key' => $inbox->mainUser->id,'client_key' => $inbox->clientUser->id]) }}" method="post" enctype="multipart/form-data">
-                                @csrf
-                                <button type="submit" class="btn btn-success">Accept</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        @endforeach
+    <div class="container mx-auto bg-white p-8 rounded-lg shadow-md max-w-3xl mt-20" style="margin-right: 200px;">
+        <h1 class="text-center text-xl text-pink-600 font-bold mb-10 leading-tight tracking-tight md:text-2xl">Inboxes</h1>
+        <form class="form-inline mb-6">
+            <input class="form-control mr-sm-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pink-600 focus:border-pink-600 w-full p-2.5" 
+                   id="filter" type="search" placeholder="Search" aria-label="Search" autocomplete="off" />
+        </form>
+
+        <!-- Inbox table -->
+        <table class="table table-hover table-bordered bg-white w-full rounded-lg">
+            <thead class="bg-pink-600 text-white">
+                <tr>
+                    <th scope="col" class="p-4">Avatar</th>
+                    <th scope="col" class="p-4">Username</th>
+                    <th scope="col" class="p-4">Type</th>
+                    <th scope="col" class="p-4">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($inboxes as $inbox)
+                <tr class="border-b">
+                    <td class="text-center p-4">
+                        <img src="{{ url('img/profile_user.svg') }}" alt="Avatar" style="width: 80px;" />
+                    </td>
+                    <td class="p-4 text-gray-900">{{ $inbox->clientUser->username }}</td>
+                    <td class="p-4 text-gray-900">{{ $inbox->type }}</td> <!-- Displaying the type -->
+                    <td class="text-center p-4">
+                        <form action="{{ route('mail.'.$inbox->type, ['main_key' => $inbox->mainUser->id,'client_key' => $inbox->clientUser->id]) }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <button type="submit" class="bg-pink-600 hover:bg-pink-500 text-white py-1 px-2 rounded text-sm">Accept</button>
+                        </form>
+                    </td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        
     </div>
     <script>
         $(document).ready(function () {
             $("#filter").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
-                $("#mycard > div").filter(function () {
+                $("table tbody tr").filter(function () {
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
                 });
             });
         });
     </script>
-</div>
 </div>
 @endsection

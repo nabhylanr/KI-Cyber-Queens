@@ -63,52 +63,13 @@ $homeController = app('App\Http\Controllers\HomeController');
 
                     @if($bkey !== null)
                     <a href="/download/aes/document/{{ $aesuser->user_id }}/{{ $bkey }}"
-                        class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm hover:bg-blue-500">Download</a>
+                         class="bg-pink-600 text-white px-3 py-1 rounded-md text-sm hover:bg-pink-500">Download</a>
                     @endif
                 </div>
             </div>
         </div>
     </div>
 
-    <div id="mycard" class="flex justify-center mt-6 ml-40">
-        <div class="w-full max-w-4xl bg-white rounded-lg shadow-md p-7">
-            <div class="flex flex-col">
-                <form action="/verify/{{(int)$aesuser->user_id}}" method="post" enctype="multipart/form-data">
-                    @csrf
-                    <div class="mb-4">
-                        <label class="font-bold text-sm text-pink-600 mb-2">Verify Document</label>
-                        <input type="file" class="w-full border border-gray-300 p-2 rounded-md text-sm" name="document" required>
-                        @error('document')
-                        <div class="text-red-500 text-sm">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div class="flex justify-end">
-                        <button id="verifybutton" class="bg-pink-600 hover:bg-pink-500 text-white px-3 py-1 rounded-md text-sm mt-1">Submit</button>
-                    </div>
-                </form>
-
-                @if(session('status') == 'success')
-                    <div class="flex mt-5 space-x-4">
-                        <div class="w-1/2 mb-3">
-                            <label class="font-bold text-sm text-pink-600 mb-2">Digest from Document</label>
-                            <textarea class="w-full border border-gray-300 p-2 rounded-md text-sm" rows="2" readonly>{{session('digest')}}</textarea>
-                        </div>
-                        <div class="w-1/2 mb-3">
-                            <label class="font-bold text-sm text-pink-600 mb-2">Decrypted Digital Signature</label>
-                            <textarea class="w-full border border-gray-300 p-2 rounded-md text-sm" rows="2" readonly>{{session('decrypted_digsig')}}</textarea>
-                        </div>
-                    </div>
-                    @if(session('digest') == session('decrypted_digsig'))
-                    <div class="bg-green-100 text-green-700 p-4 rounded">Digest and decrypted digital signature match! Document is verified.</div>
-                    @else
-                    <div class="bg-red-100 text-red-700 p-4 rounded">Digest and decrypted digital signature do not match. Document integrity is compromised.</div>
-                    @endif
-                @elseif(session('status') == 'failed')
-                <div class="bg-red-100 text-red-700 p-4 rounded">{{session('message')}}</div>
-                @endif
-            </div>
-        </div>
-    </div>
 </div>
 
 <script>

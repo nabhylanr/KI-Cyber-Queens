@@ -65,8 +65,9 @@ $homeController = app('App\Http\Controllers\HomeController');
 
                     @if($ckey !== null)
                     <a href="/download/aes/video/{{ $aesuser->user_id }}/{{ $ckey }}"
-                        class="bg-blue-600 text-white px-3 py-1 rounded-md text-sm hover:bg-blue-500">Download</a>
-                    @endif
+   class="bg-pink-600 text-white px-3 py-1 rounded-md text-sm hover:bg-pink-500">Download</a>
+@endif
+
                 </div>
             </div>
         </div>
