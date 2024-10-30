@@ -24,7 +24,7 @@
                 @foreach($inboxes as $inbox)
                 <tr class="border-b">
                     <td class="text-center p-4">
-                        <img src="{{ url('img/profile_user.svg') }}" alt="Avatar" style="width: 80px;" />
+                        <img src="{{ url('img/profile1.svg') }}" alt="Avatar" style="width: 80px;" />
                     </td>
                     <td class="p-4 text-gray-900">{{ $inbox->clientUser->username }}</td>
                     <td class="p-4 text-gray-900">{{ $inbox->type }}</td> <!-- Displaying the type -->

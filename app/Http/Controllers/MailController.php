@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserInbox;
-use Mail;
-use Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use App\Mail\HelloMail;
+use App\Models\UserInbox;
 use App\Models\User;
 use App\Models\AES;
-use Illuminate\Http\Request;
-use Http\Controllers\DataController;
-use App\Http\Controllers\HomeController;
-use phpseclib3\Crypt\RSA;
-use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Log;
 
 class MailController extends Controller
 {

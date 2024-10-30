@@ -21,7 +21,7 @@
                 @foreach($usernames as $username)
                 <tr class="border-b">
                     <td class="text-center p-4">
-                        <img src="{{ url('img/profile_user.svg') }}" alt="Avatar" style="width: 80px" />
+                        <img src="{{ url('img/profile1.svg') }}" alt="Avatar" style="width: 80px" />
                     </td>
                     <td class="p-4 text-gray-900">{{ $username->username }}</td>
                     <td class="text-center p-4">
