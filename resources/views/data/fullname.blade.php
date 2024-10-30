@@ -7,13 +7,14 @@ $homeController = app('App\Http\Controllers\HomeController');
 <div class="bg-pink-100 min-h-screen py-10">    
     <div class="text-center mb-4 my-20">
         <div class="col">
-            <h1 class="text-2xl font-bold text-pink-600">{{ $user->username }}'s Fullname</h1>
+            <h1 class="text-2xl font-bold text-pink-600 ml-32">{{ $user->username }}'s Fullname</h1>
         </div>
     </div>
 
-    <div id="mycard" class="flex justify-center space-x-6">
-        <div class="w-full max-w-md bg-white rounded-lg shadow-md p-7 ml-40">
-            <div class="flex flex-col">
+    <div id="mycard" class="flex justify-center ml-36">
+        <div class="w-full max-w-md bg-white rounded-lg shadow-md p-7 ml-12"> <!-- Adjusted margin-left -->
+            <div class="flex flex-col mb-8">
+                <!-- Decrypt Key Section -->
                 <div class="mb-4">
                     <label class="font-bold text-sm text-pink-600 mb-2">Decrypt key from your email</label>
                     <textarea id="encsymkey" rows="4" class="w-full border border-gray-300 p-2 rounded-md text-sm"
@@ -29,11 +30,9 @@ $homeController = app('App\Http\Controllers\HomeController');
                     <textarea id="outputTextarea" class="w-full border border-gray-300 p-2 rounded-md text-sm" rows="1" readonly></textarea>
                 </div>
             </div>
-        </div>
 
-        <!-- Second Card for Symmetric Key and Request Button -->
-        <div class="w-full max-w-md bg-white rounded-lg shadow-md p-7">
-            <div class="flex flex-col">
+            <!-- Symmetric Key Section -->
+            <div class="flex flex-col mb-4">
                 <div class="mb-4">
                     <label class="font-bold text-sm text-pink-600 mb-2">Symmetric Key</label>
                     @if($inbox !== null)
